@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+<title>Reports - Peering Database</title>
+
+{% block app_content %}
+{{ form.submit_ipv4() }}
+{{ form.submit_ipv6() }}
+{{ table }}
+{% endblock %}

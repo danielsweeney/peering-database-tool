@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+<title>Search Results - Peering Database</title>
+
+{% block app_content %}
+    {% if search.data['exchange'] %}
+        <h2>Search Term: {{ search.data['exchange'] }}</h2><br>
+        {% elif search.data['search'] %}
+        <h2>Search Term: {{ search.data['search'] }}</h2><br>
+    {% else %}
+        <h2>Search Term was Empty: - Querying all records</h2>
+    {% endif %}
+    {{ table }}
+    <nav aria-label="...">
+         <ul class="pager">
+             <li class="previous{% if not prev_url %} disabled{% endif %}">
+                 <a href="{{ prev_url or '#' }}">
+                     <span aria-hidden="true">&larr;</span>Previous Page</a>
+             </li>
+             <li class="next{% if not next_url %} disabled{% endif %}">
+                 <a href="{{ next_url or '#' }}">Next Page<span aria-hidden="true">&larr;</span></ a>
+             </li>
+         </ul>
+     </nav>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to peering exchange informan pages. You can add a new peer to the exchange table below.</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+        <table class="tg">
+            <thead>
+                <tr>
+                    <th class="tg-0lax">Name</th>
+                    <th class="tg-0lax">AS Number</th>
+                    <th class="tg-0lax">Policy</th>
+                    <th class="tg-0lax">IPv4 Prefixes</th>
+                    <th class="tg-0lax">IPv6 Prefixes</th>
+                    <th class="tg-0lax">AS-Set</th>
+                    <th class="tg-0lax">IPv4 Addresses</th>
+                    <th class="tg-0lax">IPv6 Addresses</th>
+                </tr>
+            <thead>
+            <tbody>
+                <tr>
+                    <td class="tg-0lax">{{ form.name(size=32) }}
+                        {% for error in form.name.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.asn(size=32) }}
+                        {% for error in form.asn.errors %}
+                        <span style="color: red;">[{{ error }}]></span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.policy(size=32) }}
+                        {% for error in form.policy.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.ipv4prefixes(size=10) }}
+                        {% for error in form.ipv4prefixes.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.ipv6prefixes(size=10) }}
+                        {% for error in form.ipv6prefixes.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.as_set(size=32) }}
+                        {% for error in form.as_set.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.ipv4addresses(size=32) }}
+                        {% for error in form.ipv4addresses.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                    <td class="tg-0lax">{{ form.ipv6addresses(size=128) }}
+                        {% for error in form.ipv6addresses.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
+
