@@ -13,11 +13,20 @@
             {{ render_field(form.ipv4prefixes) }}
             {{ render_field(form.ipv6prefixes) }}
             {{ render_field(form.as_set) }}
+            {{ render_field(form.region) }}
             {{ render_field(form.Peered_IPv4) }}
             {{ render_field(form.Peered_IPv6) }}
+            {{ render_field(form.ixlan) }}
         </dl>
         {# <p><input type="submit" value="submit"></p> #}
         <p>{{ form.submit() }}</p>
-</form>
+    </form>
+    <form id="generate" action ="" method="POST" validate>
+        {{ form.hidden_tag() }}
+        <p>{{ form.generate }}</p>
+        {% for config in configs %}
+            {% include '_config.html' %}
+        {% endfor %}
+    </form>
 {% endblock %}
 

@@ -1,0 +1,18 @@
+<div class="boxed">
+protocols{
+    bgp{
+        group {{ peer.region }} {
+            neighbor {{ ipv4address }}{
+                description "AS{{ peer.asn }} {{ peer.name }}"
+                family inet any{ 
+                    prefix-limit{ 
+                        maximum {{ peer.ipv4prefixes }}
+                        teardown 80
+                        idle-timeout 60
+                    }
+                peer-as {{ peer.asn }}
+            }
+        }
+    }
+}
+</div>

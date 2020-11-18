@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+
+<div class = "boxed">
+    <pre>
+        <code>
+        protocols{
+            bgp{
+                group {{ peer.region }}{
+                    {% for line in item %}
+                    neighbor {{ line[1] }}{
+                        description ({{ peer.asn }}) {{ peer.name }}
+                        family inet any{
+                            prefix-limit{
+                                maximum {{ peer.ipv4prefixes }}
+                                teardown 80
+                                idle-timeout 60
+                            }
+                        peer-as {{ peer.asn }}
+                    {% endfor %}
+                }
+            }
+        }
+        </code>
+    </pre>
+</div>
+{% endblock %}

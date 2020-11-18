@@ -21,7 +21,14 @@ class Exchange(db.Model):
     exchange_name = db.Column(db.String(128), index=True, unique=False)
     ixlan_id = db.Column(db.Integer, index=True, unique=True)
     peers = db.relationship('Peer', backref='peers', lazy='dynamic')
+    router = db.Column(db.Integer, db.ForeignKey('router.id'))
 
     def __repr__(self):
         return '{},{},{}'.format(self.id, self.exchange_name, self.ixlan_id)
         #return '{}'.format(self.exchange_name)
+
+class Router(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    router_name = db.Column(db.String(64), index=True, unique=True)
+    region = db.Column(db.String(32), index=True, unique=False)
+

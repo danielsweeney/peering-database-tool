@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1>Edit Router Information</h1>
+
+    {% from "_formhelpers.html" import render_field %}
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        <dl>
+            {{ render_field(form.router_name) }}
+            {{ render_field(form.region) }}
+        </dl>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

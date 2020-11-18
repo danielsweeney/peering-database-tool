@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+    <h1>Edit Exchange Information</h1>
+
+    {% from "_formhelpers.html" import render_field %}
+    <form action="" method="POST" novalidate>
+        {{ form.csrf_token }}
+        {{ form.hidden_tag() }}
+        <dl>
+            {{ render_field(form.exchange_name) }}
+            {{ render_field(form.ixlan_id) }}
+            {{ render_field(form.router_id) }}
+        </dl>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
