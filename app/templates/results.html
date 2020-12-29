@@ -11,6 +11,16 @@
         <h2>Search Term was Empty: - Querying all records</h2>
     {% endif %}
     {{ table }}
+    {#<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0lax">ID</th>
+    <th class="tg-0lax">ASN</th>
+    <th class="tg-0lax">Company</th>
+    <th class="tg-0lax">IX</th>
+  </tr>
+</thead>
+    </table>#}
     {% for line in res %}
     {{ line }}<br>
     {% endfor %}

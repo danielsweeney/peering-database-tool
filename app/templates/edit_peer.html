@@ -21,9 +21,12 @@
         {# <p><input type="submit" value="submit"></p> #}
         <p>{{ form.submit() }}</p>
     </form>
-    <form id="generate" action ="" method="POST" validate>
+    <form id="Generate" action="" method="POST">
         {{ form.hidden_tag() }}
-        <p>{{ form.generate }}</p>
+        <div class="panel-body">
+            <input type="submit" name="action" value="Generate">
+        </div>
+        {#<p>{{ form.generate }}</p>#}
         {% for config in configs %}
             {% include '_config.html' %}
         {% endfor %}

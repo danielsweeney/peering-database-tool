@@ -150,14 +150,16 @@ def edit(id):
         #print(peer)
         form = PeersForm(formdata=request.form, obj=peer)
         print(form)
-        #if form.id == "generate":
+        if request.method == 'POST' and form.submit():
             #return generate_config(peer, form)
         #if request.method == 'POST' and form.validate():
-        if form.validate_on_submit():
+        #if form.validate_on_submit():
             save_changes(peer, form)
-            #return generate_config(peer, form)
+            #generate_config(peer, form)
             flash('Peer updated successfully!')
             return redirect('/')
+        if request.method == 'POST' and form.generate():
+            return generate(peer, form)
         return render_template('edit_peer.html', form=form)
     else:
         return 'error loading #{id}'.format(id=id)

@@ -16,7 +16,8 @@ class PeersForm(FlaskForm):
     region_choices = [
             ('North America','North America'),
             ('Europe', 'Europe'),
-            ('Asia', 'Asia')
+            ('Asia', 'Asia'),
+            ('Global', 'Global')
             ]
     name = StringField('Company', validators=[DataRequired()])
     asn = IntegerField('AS Number', validators=[DataRequired()])
